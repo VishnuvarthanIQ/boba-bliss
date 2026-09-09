@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/jpeg" href="assets/img/logo.png">
+  <title>Boba Bliss — Freshly Brewed. Perfectly Bubbly.</title>
+<meta name="description" content="Boba Bliss is a premium bubble tea and boba shop serving fresh milk teas, fruit blends and fully custom drinks made with real ingredients.">
+<meta property="og:title" content="Boba Bliss — Freshly Brewed. Perfectly Bubbly.">
+<meta property="og:description" content="Premium bubble tea, brewed fresh daily and made your way.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="#">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+  /* Advanced Product Cards */
+  .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 32px; }
+  .product-card { background: var(--bg-raised); border-radius: 24px; border: 1px solid var(--border); overflow: hidden; position: relative; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; }
+  .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-color: var(--border-soft); }
+  .product-card .product-media { position: relative; width: 100%; aspect-ratio: 4/5; overflow: hidden; }
+  .product-card .product-media img { transition: transform 0.6s var(--ease); width: 100%; height: 100%; object-fit: cover; }
+  .product-card:hover .product-media img { transform: scale(1.08); }
+  
+  .product-card .badge { position: absolute; top: 16px; left: 16px; background: var(--ink); color: #fff; padding: 6px 14px; font-size: 0.75rem; font-weight: 800; border-radius: var(--radius-pill); text-transform: uppercase; letter-spacing: 0.5px; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+  .product-card .fav-btn { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border-radius: 50%; background: #ffffff !important; border: none; color: #8a8a8e; cursor: pointer; transition: all 0.25s var(--ease); z-index: 2; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); outline: none; }
+  .product-card .fav-btn .heart-icon { width: 22px; height: 22px; stroke: currentColor; stroke-width: 2.2px; stroke-linecap: round; stroke-linejoin: round; fill: none; transition: fill 0.25s var(--ease), stroke 0.25s var(--ease); }
+  .product-card .fav-btn:hover { transform: scale(1.1); color: #e74c3c; box-shadow: 0 6px 16px rgba(0,0,0,0.14); }
+  .product-card .fav-btn.active { color: #e74c3c; background: #ffffff !important; box-shadow: 0 4px 14px rgba(231,76,60,0.25); }
+  .product-card .fav-btn.active .heart-icon { fill: #e74c3c; stroke: #e74c3c; }
+  
+  .product-info { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
+  .product-info h3 { font-size: 1.25rem; margin-bottom: 8px; line-height: 1.3; }
+  .product-info p { color: var(--text-soft); font-size: 0.9rem; margin-bottom: 24px; line-height: 1.5; flex-grow: 1; }
+  .product-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+  .product-price { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 800; color: var(--text); }
+  .product-price .old { font-size: 0.9rem; color: var(--text-soft); text-decoration: line-through; margin-right: 8px; font-weight: 600; font-family: var(--font-body); }
+  
+  .add-cart-btn { background: var(--bg); border: 2px solid var(--border); color: var(--text); width: 44px; height: 44px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: all 0.3s; font-size: 1.2rem; }
+  .product-card:hover .add-cart-btn { background: var(--accent); border-color: var(--accent); color: #fff; transform: rotate(90deg); }
+</style>
+
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container header-row">
+    <a href="index.html" class="logo" style="display: flex; align-items: center;"><img src="assets/img/logo.png" alt="Logo" style="width: 56px; height: 56px; margin-right: 12px; object-fit: contain;"> Boba Bliss</a>
+
+    <nav class="main-nav">
+      <div class="has-dropdown" style="display:inline-block;">
+        <a href="index.html"  class="active">Home <span style="font-size:0.7em;">▼</span></a>
+        <div class="dropdown">
+          <a href="index.html" class="active">Home 1 (Classic)</a>
+          <a href="index2.html" class="active">Home 2 (Modern)</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="customize.html">Customize</a>
+      <a href="franchise.html">Franchise</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="wishlist.html" class="icon-btn" aria-label="Favorites">♥<span class="badge" data-fav-count style="display:none">0</span></a>
+      <a href="cart.html" class="icon-btn" aria-label="Cart">🛍<span class="badge" data-cart-count style="display:none">0</span></a>
+      <button class="icon-btn theme-toggle" data-theme-toggle aria-label="Toggle dark mode">🌙</button>
+      <button class="icon-btn" id="rtl-toggle" aria-label="Toggle RTL" style="margin-right:8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4"></path><path d="M3 7h18"></path><path d="M7 21l-4-4 4-4"></path><path d="M21 17H3"></path></svg></button>
+      <a href="login.html" class="btn btn-outline btn-sm login-btn">Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm register-btn">Register</a>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile drawer -->
+<div class="mobile-drawer">
+  <div class="backdrop"></div>
+  <div class="panel">
+    <button class="close-drawer" aria-label="Close menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    <nav>
+      <div class="has-dropdown" style="display:inline-block;">
+        <a href="index.html" class="active">Home <span style="font-size:0.7em;">▼</span></a>
+        <div class="dropdown">
+          <a href="index.html" class="active">Home 1 (Classic)</a>
+          <a href="index2.html" class="active">Home 2 (Modern)</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="customize.html">Customize</a>
+      <a href="franchise.html">Franchise</a>
+      <a href="contact.html">Contact</a>
+        <div style="display:flex; gap:10px; margin-top:12px; padding-top:16px; border-top:1px solid var(--border);">
+          <a href="login.html" class="btn btn-outline btn-sm" style="flex:1; text-align:center; display:block;">Login</a>
+          <a href="register.html" class="btn btn-primary btn-sm" style="flex:1; text-align:center; display:block;">Register</a>
+        </div>
+      </nav>
+    
+    
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">FRESHLY BREWED DAILY · EST. 2020</p>
+        <h1>Fresh boba, made for your happy moments</h1>
+        <p>From creamy milk teas to refreshing fruit blends, every cup is crafted with premium ingredients, chewy pearls, and a little extra joy.</p>
+        <div class="hero-actions">
+          <a href="menu.html" class="btn btn-primary">Explore Our Menu</a>
+          <a href="customize.html" class="btn btn-outline">Customize Your Drink</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="cup-wrap floating"><img src="assets/img/12c46d62-8b52-47de-a34b-a0c6b309fa54.jpeg" alt="Hero Boba" style="width:100%; height:auto; border-radius: 20px;"></div>
+      </div>
+    </div>
+
+    <div class="hero-stats reveal">
+      <div class="stat"><div class="num"><span data-count="50" data-suffix="+">0+</span></div><div class="label">Flavors</div></div>
+      <div class="stat"><div class="num"><span data-count="25" data-suffix="K+">0K+</span></div><div class="label">Happy Customers</div></div>
+      <div class="stat"><div class="num"><span data-count="4.9" data-suffix="/5">0/5</span></div><div class="label">Average Rating</div></div>
+      <div class="stat"><div class="num"><span data-count="15" data-suffix="+">0+</span></div><div class="label">Locations</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTNER STRIP ============ -->
+<section class="strip">
+  <div class="container strip-inner">
+    <span class="strip-label">LOVED BY BOBA FANS EVERYWHERE</span>
+    <div class="strip-names">
+      <span>Urban Café</span>
+      <span>Daily Brew</span>
+      <span>Fresh House</span>
+      <span>The Green Room</span>
+      <span>Sweet Corner</span>
+      <span>City Eats</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">WHAT WE DO</p>
+      <h2>Boba for every kind of craving</h2>
+      <p>From classic milk tea to custom creations, discover drinks made around the way you like to enjoy them.</p>
+    </div>
+
+    <div class="services-grid reveal">
+      <a href="menu.html?cat=milk-tea" class="service-card" style="text-decoration:none; color:inherit; cursor:pointer;">
+        <div class="service-top"><span class="service-icon">🍵</span><span class="service-arrow">↗</span></div>
+        <div><h3>Milk Tea</h3><p>Classic creamy milk teas made with premium brewed tea.</p></div>
+      </a>
+      <a href="menu.html?cat=fruit-tea" class="service-card" style="text-decoration:none; color:inherit; cursor:pointer;">
+        <div class="service-top"><span class="service-icon">🍓</span><span class="service-arrow">↗</span></div>
+        <div><h3>Fruit Tea</h3><p>Fresh and refreshing fruit-infused tea blends.</p></div>
+      </a>
+      <a href="menu.html?cat=matcha" class="service-card" style="text-decoration:none; color:inherit; cursor:pointer;">
+        <div class="service-top"><span class="service-icon">🍃</span><span class="service-arrow">↗</span></div>
+        <div><h3>Matcha</h3><p>Smooth premium matcha drinks with customizable toppings.</p></div>
+      </a>
+      <a href="menu.html?cat=brown-sugar" class="service-card" style="text-decoration:none; color:inherit; cursor:pointer;">
+        <div class="service-top"><span class="service-icon">🧋</span><span class="service-arrow">↗</span></div>
+        <div><h3>Brown Sugar Boba</h3><p>Rich caramelized brown sugar with chewy tapioca pearls.</p></div>
+      </a>
+      <a href="customize.html" class="service-card" style="text-decoration:none; color:inherit; cursor:pointer;">
+        <div class="service-top"><span class="service-icon">✨</span><span class="service-arrow">↗</span></div>
+        <div><h3>Custom Drinks</h3><p>Build your perfect drink from tea base to toppings.</p></div>
+      </a>
+      <a href="contact.html" class="service-card" style="text-decoration:none; color:inherit; cursor:pointer;">
+        <div class="service-top"><span class="service-icon">🎉</span><span class="service-arrow">↗</span></div>
+        <div><h3>Party &amp; Catering</h3><p>Fresh boba beverages for birthdays, weddings and events.</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT SPLIT ============ -->
+<section>
+  <div class="container split">
+    <div class="split-media reveal-left">
+      <img src="assets/img/cute_boba.jpg" alt="About Boba" style="width:100%;height:auto;display:block;">
+      <div class="split-stat">
+        <div class="num">6+ Years</div>
+        <div class="label">crafting better boba</div>
+      </div>
+    </div>
+    <div class="split-content reveal-right">
+      <p class="eyebrow">WHY BOBA BLISS</p>
+      <h2>Made fresh. Served happy.</h2>
+      <p>Every cup starts with tea brewed in small batches throughout the day — never sitting, never stale. We pair it with real fruit, hand-cooked brown sugar, and pearls rolled fresh each morning.</p>
+      <p>What began as a single counter in 2020 has grown into fifteen neighborhood shops, but the recipe hasn't changed: good ingredients, made with care, handed over with a smile.</p>
+      <a href="about.html" class="btn btn-outline" style="margin-top:26px;">Our Story →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">WHY CHOOSE US</p>
+      <h2>Small details, every cup</h2>
+    </div>
+    <div class="feature-list reveal">
+      <div class="feature-item"><span class="ficon">🌿</span><h4>Premium Ingredients</h4><p>Carefully selected tea, milk and fresh ingredients.</p></div>
+      <div class="feature-item"><span class="ficon">🔥</span><h4>Freshly Brewed</h4><p>Tea is brewed fresh throughout the day.</p></div>
+      <div class="feature-item"><span class="ficon">🎛️</span><h4>Custom Your Way</h4><p>Choose sweetness, ice and toppings.</p></div>
+      <div class="feature-item"><span class="ficon">♻️</span><h4>Sustainable Packaging</h4><p>Eco-conscious cups and packaging.</p></div>
+      <div class="feature-item"><span class="ficon">⚡</span><h4>Fast Service</h4><p>Fresh drinks without the long wait.</p></div>
+      <div class="feature-item"><span class="ficon">💛</span><h4>Happiness Guaranteed</h4><p>Every drink is made with care.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section>
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">HOW IT WORKS</p>
+      <h2>From tea to your perfect cup</h2>
+    </div>
+    <div class="process-row reveal">
+      <div class="process-step"><div class="step-num">01</div><h4>Choose Your Tea</h4><p>Pick a base — milk, fruit, matcha or more.</p></div>
+      <div class="process-step"><div class="step-num">02</div><h4>Pick Your Sweetness</h4><p>Dial it in from 0% to 100%.</p></div>
+      <div class="process-step"><div class="step-num">03</div><h4>Add Your Toppings</h4><p>Pearls, jelly, foam — however you like it.</p></div>
+      <div class="process-step"><div class="step-num">04</div><h4>Sip & Enjoy</h4><p>Handed over fresh, every single time.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGNATURE BOBA ============ -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">FEATURED DRINKS</p>
+      <h2>Our signature boba</h2>
+      <p>Six house favorites, loved on repeat.</p>
+    </div>
+    <div class="product-grid reveal" id="featured-products"></div>
+  </div>
+</section>
+
+<!-- ============ CUSTOM CTA ============ -->
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div>
+        <h2>Your cup. Your rules.</h2>
+        <p>Choose your tea, sweetness, ice and favorite toppings to create a drink that's completely yours.</p>
+        <a href="customize.html" class="btn btn-primary" style="margin-top:26px;">Build My Boba</a>
+      </div>
+      <div class="cta-visual">
+        <img src="assets/img/7c320d2c-faef-4140-9b42-d634cfb7dbd7.jpeg" alt="Custom Boba" style="width:100%;max-width:220px;border-radius:12px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section>
+  <div class="container">
+    <div class="testi-head reveal">
+      <div>
+        <p class="eyebrow">HAPPY BOBA LOVERS</p>
+        <h2>Sip, smile, repeat</h2>
+      </div>
+      <div class="rating-pill">★★★★★ 4.9 / 5 · 2,300+ Reviews</div>
+    </div>
+
+    <div class="testi-track reveal">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote">Best brown sugar boba I've tried anywhere. The pearls stay chewy right to the last sip.</p>
+        <div class="testi-person"><div class="avatar">A</div><div><div class="name">Aditi R.</div><div class="role">Regular, Coimbatore</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote">Love how customizable everything is. My matcha comes out exactly the way I want it, every time.</p>
+        <div class="testi-person"><div class="avatar">K</div><div><div class="name">Karthik S.</div><div class="role">Regular, Bengaluru</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote">Beautiful shop, friendly staff, and the mango passion tea is unbeatable on a hot afternoon.</p>
+        <div class="testi-person"><div class="avatar">P</div><div><div class="name">Priya M.</div><div class="role">First-time visitor</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote">Ordered catering for a birthday party and every cup arrived perfectly labeled and fresh.</p>
+        <div class="testi-person"><div class="avatar">R</div><div><div class="name">Rahul D.</div><div class="role">Catering customer</div></div></div>
+      </div>
+    </div>
+    <div class="testi-controls">
+      <button data-testi-prev aria-label="Previous">←</button>
+      <button data-testi-next aria-label="Next">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section>
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">SIMPLE PRICING</p>
+      <h2>Choose your boba experience</h2>
+    </div>
+    <div class="pricing-grid reveal">
+      <div class="price-card">
+        <h3>Classic</h3>
+        <div class="price-amount">₹199</div>
+        <ul class="price-list">
+          <li>Classic milk tea</li>
+          <li>Regular size</li>
+          <li>1 topping</li>
+          <li>Standard sweetness</li>
+        </ul>
+        <a href="menu.html" class="btn btn-outline btn-block">Choose Classic</a>
+      </div>
+      <div class="price-card popular">
+        <span class="badge-pop">MOST POPULAR</span>
+        <h3>Signature</h3>
+        <div class="price-amount">₹249</div>
+        <ul class="price-list">
+          <li>Premium milk tea</li>
+          <li>Large size</li>
+          <li>2 toppings</li>
+          <li>Custom sweetness</li>
+        </ul>
+        <a href="customize.html" class="btn btn-primary btn-block">Choose Signature</a>
+      </div>
+      <div class="price-card">
+        <h3>Premium</h3>
+        <div class="price-amount">₹349</div>
+        <ul class="price-list">
+          <li>Signature drink</li>
+          <li>Extra-large size</li>
+          <li>3 toppings</li>
+          <li>Premium add-ons</li>
+        </ul>
+        <a href="customize.html" class="btn btn-outline btn-block">Choose Premium</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOG ============ -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">FROM OUR JOURNAL</p>
+      <h2>Fresh ideas & boba stories</h2>
+    </div>
+    <div class="blog-grid reveal">
+      <article class="blog-card">
+        <div class="blog-media"><img src="assets/img/53e21f0a5f53f0e70a2c28619e953232.jpg" alt="Boba Blog" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="blog-body">
+            <div class="blog-meta"><span>Recipes</span><span>·</span><span>5 min read</span></div>
+          <h3>5 ways to customize your perfect boba</h3>
+          <p>Small swaps in base, sweetness and toppings that change the whole drink.</p>
+            <div class="blog-extended-content" style="display:none; margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border); font-size:0.95rem; line-height:1.6;">
+              <p>When you walk into Boba Bliss, the menu is just the beginning. By adjusting your ice level, swapping the milk, or mixing up the toppings, you can turn a classic milk tea into your own signature drink. Here are some simple ways to customize your next order.</p><ul style='margin-top:10px; margin-left:20px; list-style-type:disc; color:var(--text-soft);'><li><strong>Play with sweetness:</strong> Don't be afraid to go 50% or even 25% sweet to let the tea notes shine.</li><li><strong>Mix toppings:</strong> Combine chewy brown sugar pearls with popping fruit boba for a textural contrast!</li><li><strong>Swap the base:</strong> Try oat milk for a creamier, nuttier finish.</li></ul>
+            </div>
+            <button class="inline-read-more" style="background:none; border:none; color:var(--accent); font-weight:700; font-size:0.95rem; padding:0; margin-top:16px; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">Read More &rarr;</button>
+            
+          </div>
+        </article>
+      <article class="blog-card">
+        <div class="blog-media"><img src="assets/img/9a8a326289eff01e5d84918660ab764f.jpg" alt="Boba Blog" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="blog-body">
+            <div class="blog-meta"><span>Boba Culture</span><span>·</span><span>4 min read</span></div>
+          <h3>Matcha vs milk tea: which one is for you?</h3>
+          <p>A quick guide to picking your everyday order.</p>
+            <div class="blog-extended-content" style="display:none; margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border); font-size:0.95rem; line-height:1.6;">
+              <p>It's the ultimate showdown: the earthy, vibrant energy of a Matcha Latte versus the comforting, roasted sweetness of Classic Milk Tea. Which one should you choose?</p><p style='margin-top:10px;'>If you're looking for an antioxidant boost and a slightly bitter, complex flavor profile, matcha is your best friend. Our stone-ground matcha pairs perfectly with oat milk. On the other hand, if you want something creamy, nostalgic, and indulgent, nothing beats our signature black milk tea.</p>
+            </div>
+            <button class="inline-read-more" style="background:none; border:none; color:var(--accent); font-weight:700; font-size:0.95rem; padding:0; margin-top:16px; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">Read More &rarr;</button>
+            
+          </div>
+        </article>
+      <article class="blog-card">
+        <div class="blog-media"><img src="assets/img/2466ffc4e80a5ebeb945ca4f316ea60b.jpg" alt="Boba Blog" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="blog-body">
+            <div class="blog-meta"><span>Café News</span><span>·</span><span>3 min read</span></div>
+          <h3>The story behind our brown sugar pearls</h3>
+          <p>Why we still hand-cook the syrup every single morning.</p>
+            <div class="blog-extended-content" style="display:none; margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border); font-size:0.95rem; line-height:1.6;">
+              <p>Our brown sugar pearls are the heart and soul of Boba Bliss. Unlike mass-produced syrups, we believe in the traditional method of slow-cooking our tapioca pearls in rich, dark brown sugar until they are perfectly caramelized and delightfully chewy.</p><p style='margin-top:10px;'>Every morning, our team spends over two hours simmering the pearls. This labor of love ensures that every time you take a sip of our Brown Sugar Cloud, you get that warm, molasses-like tiger stripe effect that makes it so irresistible.</p>
+            </div>
+            <button class="inline-read-more" style="background:none; border:none; color:var(--accent); font-weight:700; font-size:0.95rem; padding:0; margin-top:16px; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">Read More &rarr;</button>
+            
+          </div>
+        </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section>
+  <div class="container">
+    <div class="newsletter reveal">
+      <h2>Stay in the boba loop</h2>
+      <p>Get new flavor announcements, special offers and exclusive boba drops delivered to your inbox.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+      <div class="form-msg"></div>
+      <p class="fine">No spam. Just good boba.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="display: flex; align-items: center;"><img src="assets/img/logo.png" alt="Logo" style="width: 56px; height: 56px; margin-right: 12px; object-fit: contain;"> Boba Bliss</a>
+        <p>Freshly brewed happiness, one cup at a time.</p>
+        <div class="social-row"><a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a><a href="https://tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a><a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a></div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul><li><a href="about.html">About</a></li><li><a href="about.html">Our Story</a></li><li><a href="contact.html">Careers</a></li><li><a href="franchise.html">Franchise</a></li></ul>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <ul><li><a href="menu.html">Milk Tea</a></li><li><a href="menu.html">Fruit Tea</a></li><li><a href="menu.html">Matcha</a></li><li><a href="menu.html">Brown Sugar</a></li><li><a href="customize.html">Toppings</a></li></ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul><li><a href="franchise.html">Franchise</a>
+        <a href="contact.html">Contact</a></li><li><a href="contact.html">FAQ</a></li><li><a href="contact.html">Delivery</a></li><li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Boba Bliss. All Rights Reserved.</span>
+      <span>Made with real tea, real fruit, real care.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+  // Featured products for Home 2 — completely different selection from Home 1
+  const featured = [
+    { id:"h2a", name:"Thai Milk Tea", cat:"Milk Tea", desc:"Spiced Thai tea, condensed milk, classic pearls.", price:209, old:null, badge:"Bestseller", color:"#D97A3F", img:"assets/img/products/thai_milk_tea.jpeg", rating:4.6 },
+    { id:"h2b", name:"Lychee Rose Tea", cat:"Fruit Tea", desc:"Lychee and rose over green tea, popping boba.", price:219, old:null, badge:null, color:"#E88FA3", img:"assets/img/products/lychee_rose_tea.jpg", rating:4.5 },
+    { id:"h2c", name:"Mango Smoothie", cat:"Smoothies", desc:"Blended mango, yogurt, honey, ice.", price:249, old:null, badge:null, color:"#E3B23C", img:"assets/img/products/mango_smoothie.jpeg", rating:4.5 },
+    { id:"h2d", name:"Roasted Chestnut Latte", cat:"Seasonal", desc:"Roasted chestnut, brown sugar, oat milk.", price:269, old:null, badge:null, color:"#8A5A3B", img:"assets/img/products/roasted_chestnut_latte.jpeg", rating:4.7 },];
+  const grid = document.getElementById("featured-products");
+  grid.innerHTML = featured.map(p => `
+    <div class="product-card reveal">
+      <div class="product-media">
+          <img src="${p.img}" alt="${p.name}">
+          ${p.badge ? `<div class="badge" style="background:${p.color}">${p.badge}</div>` : ''}
+          <button class="fav-btn" data-id="${p.id}" aria-label="Favorite"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="heart-icon"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
+        </div>
+        <div class="product-info">
+          <h3>${p.name}</h3>
+          <div class="product-rating" style="display:flex;align-items:center;gap:4px;margin-bottom:6px;">
+            <span style="color:#F5A623;font-size:0.85rem;">${'★'.repeat(Math.floor(p.rating))}${'☆'.repeat(5-Math.floor(p.rating))}</span>
+            <span style="font-size:0.8rem;color:var(--text-soft);font-weight:600;">${p.rating}</span>
+          </div>
+          <p>${p.desc}</p>
+          <div class="product-bottom">
+            <div class="product-price">
+              ${p.old ? `<span class="old">₹${p.old}</span>` : ''}₹${p.price}
+            </div>
+            <button class="add-cart-btn add-cart" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}" data-img="${p.img}" aria-label="Add to cart">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+          </div>
+        </div>
+    </div>
+  `).join("");
+  window.bbRefresh && window.bbRefresh();
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".inline-read-more").forEach(btn => {
+    btn.addEventListener("click", function() {
+      const extended = this.previousElementSibling;
+      if (extended.style.display === "none") {
+        extended.style.display = "block";
+        this.innerHTML = "Read Less &uarr;";
+      } else {
+        extended.style.display = "none";
+        this.innerHTML = "Read More &rarr;";
+      }
+    });
+  });
+});
+</script>
+  <script src="assets/js/advanced_animations.js"></script>
+</body>
+
+</html>

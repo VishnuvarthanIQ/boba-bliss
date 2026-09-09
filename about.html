@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/jpeg" href="assets/img/logo.png">
+  <title>About — Boba Bliss</title>
+<meta name="description" content="The story behind Boba Bliss — how a single counter in 2020 grew into fifteen neighborhood boba shops, and the values that haven't changed.">
+<link rel="canonical" href="#">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="index.html" class="logo" style="display: flex; align-items: center;"><img src="assets/img/logo.png" alt="Logo" style="width: 56px; height: 56px; margin-right: 12px; object-fit: contain;"> Boba Bliss</a>
+
+    <nav class="main-nav">
+      <div class="has-dropdown" style="display:inline-block;">
+        <a href="index.html" >Home <span style="font-size:0.7em;">▼</span></a>
+        <div class="dropdown">
+          <a href="index.html">Home 1 (Classic)</a>
+          <a href="index2.html">Home 2 (Modern)</a>
+        </div>
+      </div>
+      <a href="about.html" class="active">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="customize.html">Customize</a>
+      <a href="franchise.html">Franchise</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="wishlist.html" class="icon-btn" aria-label="Favorites">♥<span class="badge" data-fav-count style="display:none">0</span></a>
+      <a href="cart.html" class="icon-btn" aria-label="Cart">🛍<span class="badge" data-cart-count style="display:none">0</span></a>
+      <button class="icon-btn theme-toggle" data-theme-toggle aria-label="Toggle dark mode">🌙</button>
+      <button class="icon-btn" id="rtl-toggle" aria-label="Toggle RTL" style="margin-right:8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4"></path><path d="M3 7h18"></path><path d="M7 21l-4-4 4-4"></path><path d="M21 17H3"></path></svg></button>
+      <a href="login.html" class="btn btn-outline btn-sm login-btn">Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm register-btn">Register</a>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-drawer">
+  <div class="backdrop"></div>
+  <div class="panel">
+    <button class="close-drawer" aria-label="Close menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    <nav>
+      <div class="has-dropdown" style="display:inline-block;">
+        <a href="index.html">Home <span style="font-size:0.7em;">▼</span></a>
+        <div class="dropdown">
+          <a href="index.html">Home 1 (Classic)</a>
+          <a href="index2.html">Home 2 (Modern)</a>
+        </div>
+      </div>
+      <a href="about.html" class="active">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="customize.html">Customize</a>
+      <a href="franchise.html">Franchise</a>
+      <a href="contact.html">Contact</a>
+        <div style="display:flex; gap:10px; margin-top:12px; padding-top:16px; border-top:1px solid var(--border);">
+          <a href="login.html" class="btn btn-outline btn-sm" style="flex:1; text-align:center; display:block;">Login</a>
+          <a href="register.html" class="btn btn-primary btn-sm" style="flex:1; text-align:center; display:block;">Register</a>
+        </div>
+      </nav>
+    
+    
+  </div>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <span class="cur">About</span></div>
+    <h1>A small counter that grew into a habit</h1>
+    <p>Boba Bliss started with one recipe worth repeating. Six years later, that's still the whole plan.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container split">
+    <div class="split-media reveal-left">
+      <img src="assets/img/69f49974-0293-4992-a42f-ca8b6c2d05da.jpeg" alt="About Boba" style="width:100%;height:auto;display:block;">
+    </div>
+    <div class="split-content reveal-right">
+      <p class="eyebrow">OUR STORY</p>
+      <h2>Made fresh. Served happy.</h2>
+      <p>Boba Bliss opened as a single walk-up counter in 2020, brewing tea in small batches so nothing ever sat too long. Word spread fast — mostly because the pearls were always chewy and the fruit was always real.</p>
+      <p>Today we run fifteen shops, but every one of them follows the same short list of rules: brew often, use real ingredients, and hand every cup over like it's for a friend.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">MISSION & VISION</p>
+      <h2>Why we make what we make</h2>
+    </div>
+    <div class="feature-list reveal" style="grid-template-columns:1fr 1fr;">
+      <div class="feature-item"><h4>Our Mission</h4><p>Serve a genuinely fresh cup of boba, every time, at a price that makes it an easy yes.</p></div>
+      <div class="feature-item" style="border-right:none;"><h4>Our Vision</h4><p>A Boba Bliss counter within reach of every neighborhood that wants one — without cutting a single corner to get there.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">OUR HISTORY</p>
+      <h2>How we got here</h2>
+    </div>
+    <div class="process-row reveal">
+      <div class="process-step"><div class="step-num">2020</div><h4>Boba Bliss Founded</h4><p>One counter, one recipe, one neighborhood.</p></div>
+      <div class="process-step"><div class="step-num">2021</div><h4>First Café Opened</h4><p>A proper sit-down space for regulars.</p></div>
+      <div class="process-step"><div class="step-num">2023</div><h4>10 Locations</h4><p>Grew across three cities without changing the recipe.</p></div>
+      <div class="process-step"><div class="step-num">2025</div><h4>Franchise Expansion</h4><p>Opened the doors to franchise partners.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div>
+        <h2>New Flavor Lab, opening 2026</h2>
+        <p>We're building a dedicated space to test seasonal drinks before they ever reach the counter.</p>
+        <a href="menu.html" class="btn btn-primary" style="margin-top:26px;">See What's Brewing</a>
+      </div>
+      <div class="cta-visual">
+        <img src="assets/img/213f4dbd0e5372a341fd0cf3676cfb50.jpg" alt="Custom Boba" style="width:100%;max-width:220px;border-radius:12px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">OUR VALUES</p>
+      <h2>What doesn't change as we grow</h2>
+    </div>
+    <div class="feature-list reveal">
+      <div class="feature-item"><span class="ficon">🌿</span><h4>Real Ingredients</h4><p>No powdered shortcuts — real tea, real fruit, real milk.</p></div>
+      <div class="feature-item"><span class="ficon">🤝</span><h4>Genuine Service</h4><p>Every shop is trained to treat regulars like regulars.</p></div>
+      <div class="feature-item"><span class="ficon">♻️</span><h4>Lower Waste</h4><p>Compostable cups and straws, brewed to order.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="testi-head reveal">
+      <div><p class="eyebrow">HAPPY BOBA LOVERS</p><h2>What people say about us</h2></div>
+      <div class="rating-pill">★★★★★ 4.9 / 5 · 2,300+ Reviews</div>
+    </div>
+    <div class="testi-track reveal">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote">You can taste the difference when the tea's actually brewed that day. It shows.</p>
+        <div class="testi-person"><div class="avatar">N</div><div><div class="name">Neha T.</div><div class="role">Regular, Chennai</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote">Staff remembered my order after two visits. That's rare these days.</p>
+        <div class="testi-person"><div class="avatar">S</div><div><div class="name">Sanjay V.</div><div class="role">Regular, Coimbatore</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote">Watched them cook the brown sugar syrup once — didn't expect that level of care.</p>
+        <div class="testi-person"><div class="avatar">M</div><div><div class="name">Meera K.</div><div class="role">First-time visitor</div></div></div>
+      </div>
+    </div>
+    <div class="testi-controls">
+      <button data-testi-prev aria-label="Previous">←</button>
+      <button data-testi-next aria-label="Next">→</button>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="display: flex; align-items: center;"><img src="assets/img/logo.png" alt="Logo" style="width: 56px; height: 56px; margin-right: 12px; object-fit: contain;"> Boba Bliss</a>
+        <p>Freshly brewed happiness, one cup at a time.</p>
+        <div class="social-row"><a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a><a href="https://tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a><a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a></div>
+      </div>
+      <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="about.html">Our Story</a></li><li><a href="contact.html">Careers</a></li><li><a href="franchise.html">Franchise</a></li></ul></div>
+      <div><h4>Menu</h4><ul><li><a href="menu.html">Milk Tea</a></li><li><a href="menu.html">Fruit Tea</a></li><li><a href="menu.html">Matcha</a></li><li><a href="menu.html">Brown Sugar</a></li><li><a href="customize.html">Toppings</a></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="contact.html">FAQ</a></li><li><a href="contact.html">Delivery</a></li><li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Boba Bliss. All Rights Reserved.</span>
+      <span>Made with real tea, real fruit, real care.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+  <script src="assets/js/advanced_animations.js"></script>
+</body>
+</html>

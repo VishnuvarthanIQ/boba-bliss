@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <title>About — Boba Bliss</title>
+<meta name="description" content="The story behind Boba Bliss — how a single counter in 2020 grew into fifteen neighborhood boba shops, and the values that haven't changed.">
+<link rel="canonical" href="#">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="index.html" class="logo" style="display: flex; align-items: center;"><img src="assets/img/logo.png" alt="Logo" style="width: 56px; height: 56px; margin-right: 12px; object-fit: contain;"> Boba Bliss</a>
+
+    <nav class="main-nav">
+      <div class="has-dropdown" style="display:inline-block;">
+        <a href="index.html" >Home <span style="font-size:0.7em;">▼</span></a>
+        <div class="dropdown">
+          <a href="index.html">Home 1 (Classic)</a>
+          <a href="index2.html">Home 2 (Modern)</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="customize.html">Customize</a>
+      <a href="franchise.html">Franchise</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="wishlist.html" class="icon-btn" aria-label="Favorites">♥<span class="badge" data-fav-count style="display:none">0</span></a>
+      <a href="cart.html" class="icon-btn" aria-label="Cart">🛍<span class="badge" data-cart-count style="display:none">0</span></a>
+      <button class="icon-btn theme-toggle" data-theme-toggle aria-label="Toggle dark mode">🌙</button>
+      <button class="icon-btn" id="rtl-toggle" aria-label="Toggle RTL" style="margin-right:8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4"></path><path d="M3 7h18"></path><path d="M7 21l-4-4 4-4"></path><path d="M21 17H3"></path></svg></button>
+      <a href="login.html" class="btn btn-outline btn-sm login-btn">Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm register-btn">Register</a>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+    </div>
+  </div>
+</header>
+<div class="mobile-drawer">
+  <div class="backdrop"></div>
+  <div class="panel">
+    <button class="close-drawer" aria-label="Close menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    <nav>
+      <div class="has-dropdown" style="display:inline-block;">
+        <a href="index.html">Home <span style="font-size:0.7em;">▼</span></a>
+        <div class="dropdown">
+          <a href="index.html">Home 1 (Classic)</a>
+          <a href="index2.html">Home 2 (Modern)</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="customize.html">Customize</a>
+      <a href="franchise.html">Franchise</a>
+      <a href="contact.html">Contact</a>
+        <div style="display:flex; gap:10px; margin-top:12px; padding-top:16px; border-top:1px solid var(--border);">
+          <a href="login.html" class="btn btn-outline btn-sm" style="flex:1; text-align:center; display:block;">Login</a>
+          <a href="register.html" class="btn btn-primary btn-sm" style="flex:1; text-align:center; display:block;">Register</a>
+        </div>
+      </nav>
+    
+    
+  </div>
+</div>
+
+<section class="page-hero" style="border-bottom:none; text-align: center; padding-bottom: 20px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <span class="cur">Shopping Cart</span></div>
+    <h1 style="margin-left:auto; margin-right:auto;">Your Cart</h1>
+  </div>
+</section>
+
+<section style="padding-top: 0; padding-bottom: 80px;">
+  <div class="container">
+    
+    <!-- EMPTY STATE -->
+    <div class="empty-state" id="cart-empty" style="display: none; text-align: center; padding: 80px 20px; background: var(--bg-raised); border-radius: var(--radius-lg); border: 2px dashed var(--border);">
+      <div style="font-size: 4rem; margin-bottom: 20px; opacity: 0.5;">🛒</div>
+      <h3 style="margin-bottom:16px;">Your cart is empty</h3>
+      <p style="margin-bottom:24px; color: var(--text-soft);">Add some delicious boba to your cart to get started.</p>
+      <a href="menu.html" class="btn btn-primary" style="display: inline-flex;">Browse Menu</a>
+    </div>
+    
+    <!-- ADVANCED CART CONTENT -->
+    <div id="cart-content" style="display: none;">
+      <div style="display: grid; grid-template-columns: 1fr 380px; gap: 40px; align-items: flex-start;" id="cart-grid">
+        
+        <!-- LEFT: Items -->
+        <div style="background: var(--bg-raised); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-sm); border: 1px solid var(--border);">
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px; font-weight: 700; color: var(--text-soft); font-size: 0.95rem;">
+            <span>Items</span>
+            <span>Total</span>
+          </div>
+          <div id="cart-items" style="display: flex; flex-direction: column; gap: 24px;">
+            <!-- Cart items populated by JS -->
+          </div>
+        </div>
+
+        <!-- RIGHT: Order Summary -->
+        <div style="background: var(--bg-raised); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; position: sticky; top: 120px; box-shadow: var(--shadow-soft);">
+          <h3 style="margin-bottom: 24px; font-size: 1.4rem;">Order Summary</h3>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 16px; color: var(--text-soft);">
+            <span>Subtotal</span>
+            <span id="summary-subtotal">₹0</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 16px; color: var(--text-soft);">
+            <span>Estimated Tax (5%)</span>
+            <span id="summary-tax">₹0</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px dashed var(--border); color: var(--text-soft);">
+            <span>Shipping</span>
+            <span>Free</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 32px;">
+            <span style="font-weight: 700; font-size: 1.1rem;">Total</span>
+            <span id="cart-total" style="font-family: 'Fraunces', serif; font-weight: 700; font-size: 2.2rem; color: var(--accent-dark);">₹0</span>
+          </div>
+          <a href="checkout.html" class="btn btn-primary btn-block" style="text-align: center; padding: 18px; font-size: 1.1rem;">Proceed to Checkout</a>
+          <p style="text-align: center; margin-top: 16px; font-size: 0.85rem; color: var(--text-soft);">Secure checkout powered by Stripe.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 990px) {
+    #cart-grid { grid-template-columns: 1fr !important; }
+  }
+  .cart-item-row { display: grid; grid-template-columns: 100px 1fr auto; gap: 24px; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .cart-item-row:last-child { border-bottom: none; padding-bottom: 0; }
+  
+  @media (max-width: 500px) {
+    .cart-item-row { grid-template-columns: 80px 1fr; }
+    .cart-item-price-col { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; margin-top: 16px; }
+  }
+  
+  .qty-btn-group { display: inline-flex; align-items: center; border: 1px solid var(--border); border-radius: var(--radius-pill); background: var(--bg); overflow: hidden; }
+  .qty-btn { width: 36px; height: 32px; border: none; background: transparent; cursor: pointer; font-weight: bold; transition: background 0.2s; color: var(--text); }
+  .qty-btn:hover { background: var(--border); }
+</style>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="display: flex; align-items: center;"><img src="assets/img/logo.png" alt="Logo" style="width: 56px; height: 56px; margin-right: 12px; object-fit: contain;"> Boba Bliss</a>
+        <p>Freshly brewed happiness, one cup at a time.</p>
+        <div class="social-row"><a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a><a href="https://tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a><a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a></div>
+      </div>
+      <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="about.html">Our Story</a></li><li><a href="contact.html">Careers</a></li><li><a href="franchise.html">Franchise</a></li></ul></div>
+      <div><h4>Menu</h4><ul><li><a href="menu.html">Milk Tea</a></li><li><a href="menu.html">Fruit Tea</a></li><li><a href="menu.html">Matcha</a></li><li><a href="menu.html">Brown Sugar</a></li><li><a href="customize.html">Toppings</a></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="contact.html">FAQ</a></li><li><a href="contact.html">Delivery</a></li><li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Boba Bliss. All Rights Reserved.</span>
+      <span>Made with real tea, real fruit, real care.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+  <script src="assets/js/advanced_animations.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  function renderCart() {
+    const cart = window.bbCart ? window.bbCart.get() : [];
+    const empty = document.getElementById("cart-empty");
+    const content = document.getElementById("cart-content");
+    
+    if (cart.length === 0) {
+      empty.style.display = "block";
+      content.style.display = "none";
+    } else {
+      empty.style.display = "none";
+      content.style.display = "block";
+      const itemsContainer = document.getElementById("cart-items");
+      let subtotal = 0;
+      
+      itemsContainer.innerHTML = cart.map(item => {
+        subtotal += item.price * item.qty;
+        // Deterministic pseudo-random image for cart items
+        const imgSrc = item.img || "assets/img/logo.png";
+          return `
+          <div class="cart-item-row">
+            <!-- Image -->
+            <div style="width: 100%; aspect-ratio: 1; border-radius: var(--radius-sm); overflow: hidden; background: #F5EEE1; border: 1px solid var(--border);">
+              <img src="${imgSrc}" alt="${item.name}" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            
+            <!-- Details & Qty -->
+            <div>
+              <h4 style="margin-bottom: 6px; font-size: 1.15rem;">${item.name}</h4>
+              <p style="font-size: 0.95rem; color: var(--text-soft); margin-bottom: 16px;">₹${item.price} each</p>
+              
+              <div class="qty-btn-group">
+                <button class="qty-btn" data-id="${item.id}" data-delta="-1">-</button>
+                <span style="font-size: 0.95rem; font-weight: 700; width: 30px; text-align: center; color: var(--text);">${item.qty}</span>
+                <button class="qty-btn" data-id="${item.id}" data-delta="1">+</button>
+              </div>
+            </div>
+            
+            <!-- Price & Remove -->
+            <div class="cart-item-price-col" style="text-align: end; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+              <div style="font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.4rem; color: var(--text);">₹${item.price * item.qty}</div>
+              <button class="remove-item" data-id="${item.id}" style="background: transparent; border: none; font-size: 0.9rem; color: var(--text-soft); font-weight: 600; transition: color 0.2s; cursor: pointer; margin-top: auto;" aria-label="Remove item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>
+            </div>
+          </div>
+        `;
+      }).join('');
+      
+      const tax = Math.round(subtotal * 0.05);
+      const total = subtotal + tax;
+      
+      document.getElementById("summary-subtotal").textContent = "₹" + subtotal;
+      document.getElementById("summary-tax").textContent = "₹" + tax;
+      document.getElementById("cart-total").textContent = "₹" + total;
+      
+      // Bind Events
+      document.querySelectorAll(".remove-item").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          const id = e.currentTarget.getAttribute("data-id");
+          window.bbCart.remove(id);
+          renderCart();
+        });
+      });
+      document.querySelectorAll(".qty-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          const btn = e.currentTarget;
+          const id = btn.getAttribute("data-id");
+          const delta = parseInt(btn.getAttribute("data-delta"));
+          window.bbCart.updateQty(id, delta);
+          renderCart();
+        });
+      });
+    }
+  }
+  renderCart();
+});
+</script>
+</body>
+</html>
+
