@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/jpeg" href="assets/img/logo.png">
+  <title>Boba Bliss — Freshly Brewed. Perfectly Bubbly.</title>
+<meta name="description" content="Boba Bliss is a premium bubble tea and boba shop serving fresh milk teas, fruit blends and fully custom drinks made with real ingredients.">
+<meta property="og:title" content="Boba Bliss — Freshly Brewed. Perfectly Bubbly.">
+<meta property="og:description" content="Premium bubble tea, brewed fresh daily and made your way.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="#">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+  /* Advanced Product Cards */
+  .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 32px; }
+  .product-card { background: var(--bg-raised); border-radius: 24px; border: 1px solid var(--border); overflow: hidden; position: relative; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; }
+  .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-color: var(--border-soft); }
+  .product-card .product-media { position: relative; width: 100%; aspect-ratio: 4/5; overflow: hidden; }
+  .product-card .product-media img { transition: transform 0.6s var(--ease); width: 100%; height: 100%; object-fit: cover; }
+  .product-card:hover .product-media img { transform: scale(1.08); }
+  
+  .product-card .badge { position: absolute; top: 16px; left: 16px; background: var(--ink); color: #fff; padding: 6px 14px; font-size: 0.75rem; font-weight: 800; border-radius: var(--radius-pill); text-transform: uppercase; letter-spacing: 0.5px; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+  .product-card .fav-btn { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border-radius: 50%; background: #ffffff !important; border: none; color: #8a8a8e; cursor: pointer; transition: all 0.25s var(--ease); z-index: 2; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); outline: none; }
+  .product-card .fav-btn .heart-icon { width: 22px; height: 22px; stroke: currentColor; stroke-width: 2.2px; stroke-linecap: round; stroke-linejoin: round; fill: none; transition: fill 0.25s var(--ease), stroke 0.25s var(--ease); }
+  .product-card .fav-btn:hover { transform: scale(1.1); color: #e74c3c; box-shadow: 0 6px 16px rgba(0,0,0,0.14); }
+  .product-card .fav-btn.active { color: #e74c3c; background: #ffffff !important; box-shadow: 0 4px 14px rgba(231,76,60,0.25); }
+  .product-card .fav-btn.active .heart-icon { fill: #e74c3c; stroke: #e74c3c; }
+  
+  .product-info { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
+  .product-info h3 { font-size: 1.25rem; margin-bottom: 8px; line-height: 1.3; }
+  .product-info p { color: var(--text-soft); font-size: 0.9rem; margin-bottom: 24px; line-height: 1.5; flex-grow: 1; }
+  .product-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+  .product-price { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 800; color: var(--text); }
+  .product-price .old { font-size: 0.9rem; color: var(--text-soft); text-decoration: line-through; margin-right: 8px; font-weight: 600; font-family: var(--font-body); }
+  
+  .add-cart-btn { background: var(--bg); border: 2px solid var(--border); color: var(--text); width: 44px; height: 44px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: all 0.3s; font-size: 1.2rem; }
+  .product-card:hover .add-cart-btn { background: var(--accent); border-color: var(--accent); color: #fff; transform: rotate(90deg); }
+</style>
+
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container header-row">
+    <a href="index.html" class="logo" style="display: flex; align-items: center;"><img src="assets/img/logo.png" alt="Logo" style="width: 56px; height: 56px; margin-right: 12px; object-fit: contain;"> Boba Bliss</a>
+
+    <nav class="main-nav">
+      <div class="has-dropdown" style="display:inline-block;">
+        <a href="index.html" >Home <span style="font-size:0.7em;">▼</span></a>
+        <div class="dropdown">
+          <a href="index.html" >Home 1 (Classic)</a>
+          <a href="index2.html">Home 2 (Modern)</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="customize.html">Customize</a>
+      <a href="franchise.html">Franchise</a>
+      <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="wishlist.html" class="icon-btn" aria-label="Favorites">♥<span class="badge" data-fav-count style="display:none">0</span></a>
+      <a href="cart.html" class="icon-btn" aria-label="Cart">🛍<span class="badge" data-cart-count style="display:none">0</span></a>
+      <button class="icon-btn theme-toggle" data-theme-toggle aria-label="Toggle dark mode">🌙</button>
+      <button class="icon-btn" id="rtl-toggle" aria-label="Toggle RTL" style="margin-right:8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4"></path><path d="M3 7h18"></path><path d="M7 21l-4-4 4-4"></path><path d="M21 17H3"></path></svg></button>
+      <a href="login.html" class="btn btn-outline btn-sm login-btn">Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm register-btn">Register</a>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile drawer -->
+<div class="mobile-drawer">
+  <div class="backdrop"></div>
+  <div class="panel">
+    <button class="close-drawer" aria-label="Close menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    <nav>
+      <div class="has-dropdown" style="display:inline-block;">
+        <a href="index.html" >Home <span style="font-size:0.7em;">▼</span></a>
+        <div class="dropdown">
+          <a href="index.html" >Home 1 (Classic)</a>
+          <a href="index2.html">Home 2 (Modern)</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="customize.html">Customize</a>
+      <a href="franchise.html">Franchise</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="contact.html">Contact</a>
+      <div class="drawer-icons">
+        <a href="wishlist.html" class="icon-btn" aria-label="Favorites">♥<span class="badge" data-fav-count style="display:none"></span></a>
+        <a href="cart.html" class="icon-btn" aria-label="Cart">🛍<span class="badge" data-cart-count style="display:none"></span></a>
+      </div>
+        <div style="display:flex; gap:10px; margin-top:12px; padding-top:16px; border-top:1px solid var(--border);">
+          <a href="login.html" class="btn btn-outline btn-sm" style="flex:1; text-align:center; display:block;">Login</a>
+          <a href="register.html" class="btn btn-primary btn-sm" style="flex:1; text-align:center; display:block;">Register</a>
+        </div>
+      </nav>
+    
+    
+  </div>
+</div>
+
+<section class="page-hero" style="text-align: center; padding-bottom: 40px;">
+  <div class="container" style="max-width: 700px; margin: 0 auto;">
+    <p class="eyebrow" style="justify-content: center;">OUR JOURNAL</p>
+    <h1 style="margin-bottom: 16px;">The Boba Bliss Blog</h1>
+    <p style="color: var(--text-soft); font-size: 1.1rem; line-height: 1.6;">Welcome to our cozy corner of the internet! Whether you're a seasoned boba enthusiast or just discovering the joy of chewy tapioca pearls, this is your destination for all things tea.</p>
+    
+    <div style="margin-top: 32px; text-align: left; background: var(--bg-raised); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px;">
+      <ul style="display: flex; flex-direction: column; gap: 14px;">
+        <li style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: var(--accent-dark); font-weight: 800;">✓</span>
+          <span style="color: var(--text-soft); font-size: 0.95rem;"><strong>Behind the Counter:</strong> Get exclusive stories from our baristas and see how we hand-craft our signature syrups every morning.</span>
+        </li>
+        <li style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: var(--accent-dark); font-weight: 800;">✓</span>
+          <span style="color: var(--text-soft); font-size: 0.95rem;"><strong>Flavor Guides:</strong> Not sure what to order? We break down flavor profiles, from earthy ceremonial matcha to rich roasted oolong.</span>
+        </li>
+        <li style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="color: var(--accent-dark); font-weight: 800;">✓</span>
+          <span style="color: var(--text-soft); font-size: 0.95rem;"><strong>Community Updates:</strong> Be the first to hear about seasonal menu drops, pop-up events, and new Boba Bliss locations!</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div style="margin: 0 0 40px 0; display: flex; flex-direction: column; gap: 24px;">
+      <input type="text" id="blogSearch" placeholder="Search articles by title or keyword..." style="width: 100%; padding: 14px 20px; border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 1rem; background: var(--bg-raised); color: var(--text); outline: none;" onfocus="this.style.borderColor='var(--accent-dark)'" onblur="this.style.borderColor='var(--border)'">
+      <div id="blogFilters" style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button class="btn btn-primary btn-sm" data-filter="all">All</button>
+        <button class="btn btn-outline btn-sm" data-filter="recipes">Recipes</button>
+        <button class="btn btn-outline btn-sm" data-filter="boba culture">Boba Culture</button>
+        <button class="btn btn-outline btn-sm" data-filter="cafe news">Cafe News</button>
+        <button class="btn btn-outline btn-sm" data-filter="health">Health</button>
+      </div>
+    </div>
+    <div style="padding-top: 10px;">
+      
+      <article class="reveal" style="padding-bottom: 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.8rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.06em;">
+          <span>Recipes</span>
+          <span style="width: 4px; height: 4px; border-radius: 50%; background: var(--border);"></span>
+          <span style="color: var(--text-soft);">5 min read</span>
+        </div>
+        <h3 style="font-size: 2.4rem; font-family: 'Fraunces', serif; margin-bottom: 18px; line-height: 1.15; letter-spacing: -0.01em;">
+          <a href="blog-1.html" style="color: var(--text); text-decoration: none;">5 ways to customize your perfect boba</a>
+        </h3>
+        <p style="color: var(--text-soft); font-size: 1.12rem; line-height: 1.75;">When you walk into Boba Bliss, the menu is just the beginning. By adjusting your ice level, swapping the milk, or mixing up the toppings, you can turn a classic milk tea into your own signature drink. One of the best-kept secrets is pairing our roasted oolong with oat milk, which perfectly amplifies the nutty, earthy undertones of the tea leaves. Another popular hack is adjusting the sweetness down to 50%; not only does this let the premium tea flavor shine through, but it also creates the perfect balance when paired with our heavily caramelized brown sugar pearls. Whether you prefer a refreshing fruit tea with lychee jelly or a creamy taro dream with extra boba, we encourage you to experiment until you find the perfect combination that brightens your day.</p>
+      </article>
+
+      <article class="reveal" style="padding-bottom: 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.8rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.06em;">
+          <span>Boba Culture</span>
+          <span style="width: 4px; height: 4px; border-radius: 50%; background: var(--border);"></span>
+          <span style="color: var(--text-soft);">4 min read</span>
+        </div>
+        <h3 style="font-size: 2.4rem; font-family: 'Fraunces', serif; margin-bottom: 18px; line-height: 1.15; letter-spacing: -0.01em;">
+          <a href="blog-2.html" style="color: var(--text); text-decoration: none;">Matcha vs milk tea: which one is for you?</a>
+        </h3>
+        <p style="color: var(--text-soft); font-size: 1.12rem; line-height: 1.75;">It's the ultimate showdown: the earthy, vibrant energy of a Matcha Latte versus the comforting, roasted sweetness of Classic Milk Tea. Which one should you choose? If you're looking for an antioxidant boost and a slightly bitter, complex flavor profile, matcha is your best friend. Our stone-ground matcha is whisked to order and pairs beautifully with plant-based milks. On the other hand, if you want something nostalgic and indulgent, nothing beats our signature black milk tea, brewed deeply and enriched with a splash of cream. Both beverages have deep roots in tea culture, but they cater to entirely different moods. Let's break down the caffeine content, the flavor notes, and the best toppings to pair with each of these iconic drinks.</p>
+      </article>
+
+      <article class="reveal" style="padding-bottom: 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.8rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.06em;">
+          <span>Cafe News</span>
+          <span style="width: 4px; height: 4px; border-radius: 50%; background: var(--border);"></span>
+          <span style="color: var(--text-soft);">3 min read</span>
+        </div>
+        <h3 style="font-size: 2.4rem; font-family: 'Fraunces', serif; margin-bottom: 18px; line-height: 1.15; letter-spacing: -0.01em;">
+          <a href="blog-3.html" style="color: var(--text); text-decoration: none;">The story behind our brown sugar pearls</a>
+        </h3>
+        <p style="color: var(--text-soft); font-size: 1.12rem; line-height: 1.75;">Our brown sugar pearls are the heart and soul of Boba Bliss. Unlike mass-produced syrups that prioritize speed over quality, we believe in the traditional method of slow-cooking our tapioca pearls in rich, dark brown sugar until they are perfectly caramelized. Every single morning, long before the cafe doors open, our team spends over two hours carefully simmering and stirring the pearls to achieve that delightfully chewy texture. This intense labor of love ensures that every time you take a sip of our Brown Sugar Cloud, you get that warm, molasses-like tiger stripe effect coating the inside of your cup. Here is an exclusive behind-the-scenes look at the dedication and technique required to make the best boba in town.</p>
+      </article>
+      
+      <article class="reveal" style="padding-bottom: 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.8rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.06em;">
+          <span>Health</span>
+          <span style="width: 4px; height: 4px; border-radius: 50%; background: var(--border);"></span>
+          <span style="color: var(--text-soft);">4 min read</span>
+        </div>
+        <h3 style="font-size: 2.4rem; font-family: 'Fraunces', serif; margin-bottom: 18px; line-height: 1.15; letter-spacing: -0.01em;">
+          <a href="#" style="color: var(--text); text-decoration: none;">The benefits of premium matcha</a>
+        </h3>
+        <p style="color: var(--text-soft); font-size: 1.12rem; line-height: 1.75;">Why does ceremonial grade make all the difference in your iced latte? Discover the unique amino acids and sustained energy release that makes premium stone-ground matcha the perfect alternative to your morning coffee. Unlike the immediate spike and subsequent crash often associated with espresso, the L-theanine found in high-quality matcha promotes a state of calm alertness, helping you stay focused throughout the day. Furthermore, matcha involves consuming the entire tea leaf, meaning you ingest a incredibly concentrated amount of antioxidants and catechins. We source our matcha directly from family-owned farms in Uji, Japan, ensuring that every cup is vibrant green, naturally sweet, and packed with health-boosting properties.</p>
+      </article>
+
+      <article class="reveal" style="padding-bottom: 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.8rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.06em;">
+          <span>Recipes</span>
+          <span style="width: 4px; height: 4px; border-radius: 50%; background: var(--border);"></span>
+          <span style="color: var(--text-soft);">6 min read</span>
+        </div>
+        <h3 style="font-size: 2.4rem; font-family: 'Fraunces', serif; margin-bottom: 18px; line-height: 1.15; letter-spacing: -0.01em;">
+          <a href="#" style="color: var(--text); text-decoration: none;">How to make milk tea at home</a>
+        </h3>
+        <p style="color: var(--text-soft); font-size: 1.12rem; line-height: 1.75;">The secret to achieving the perfect tea-to-milk ratio without watering it down lies in the brewing process. We share our professional brewing temperatures, steeping times, and exactly how to sweeten your tea while it's still hot to ensure a smooth, cohesive flavor. It all starts with selecting a bold, loose-leaf black tea that can stand up to the richness of the milk. We highly recommend using a combination of whole milk and a splash of half-and-half for that authentic cafe-style creaminess. Finally, the trick to icing your drink without diluting the tea is to brew a highly concentrated batch and pour it directly over a shaker full of ice. Follow our step-by-step recipe to recreate the Boba Bliss experience right in your own kitchen.</p>
+      </article>
+      
+      <article class="reveal" style="padding-bottom: 48px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.8rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.06em;">
+          <span>Boba Culture</span>
+          <span style="width: 4px; height: 4px; border-radius: 50%; background: var(--border);"></span>
+          <span style="color: var(--text-soft);">5 min read</span>
+        </div>
+        <h3 style="font-size: 2.4rem; font-family: 'Fraunces', serif; margin-bottom: 18px; line-height: 1.15; letter-spacing: -0.01em;">
+          <a href="#" style="color: var(--text); text-decoration: none;">A history of tapioca pearls</a>
+        </h3>
+        <p style="color: var(--text-soft); font-size: 1.12rem; line-height: 1.75;">From a humble dessert topping in Taiwan to a global phenomenon, the journey of the tapioca pearl is a fascinating tale of culinary innovation. Derived from the starch of the cassava root, tapioca was originally used in traditional shaved ice desserts before an inventive tea shop owner decided to drop a few chewy balls into a glass of cold milk tea in the late 1980s. The contrasting textures of the smooth, sweet tea and the bouncy, gummy-like pearls created an instant sensation. Today, "boba" has evolved into an entire subculture, with countless variations of flavors, colors, and consistencies. We dive deep into the archives to trace how this simple ingredient transformed the modern beverage industry and became a cultural icon across the world.</p>
+      </article>
+      
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="display: flex; align-items: center;"><img src="assets/img/logo.png" alt="Logo" style="width: 56px; height: 56px; margin-right: 12px; object-fit: contain;"> Boba Bliss</a>
+        <p>Freshly brewed happiness, one cup at a time.</p>
+        <div class="social-row"><a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a><a href="https://tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a><a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a></div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul><li><a href="about.html">About</a></li><li><a href="about.html">Our Story</a></li><li><a href="contact.html">Careers</a></li><li><a href="franchise.html">Franchise</a></li><li><a href="blog.html">Blog</a></li></ul>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <ul><li><a href="menu.html">Milk Tea</a></li><li><a href="menu.html">Fruit Tea</a></li><li><a href="menu.html">Matcha</a></li><li><a href="menu.html">Brown Sugar</a></li><li><a href="customize.html">Toppings</a></li></ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul><li><a href="contact.html">Contact</a></li><li><a href="contact.html">FAQ</a></li><li><a href="contact.html">Delivery</a></li><li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Boba Bliss. All Rights Reserved.</span>
+      <span>Made with real tea, real fruit, real care.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+  // Featured products for the homepage — shared markup pattern used across menu.html
+  const featured = [
+    { id:"p1", name:"Brown Sugar Cloud", cat:"Brown Sugar", desc:"Caramelized brown sugar, fresh milk, chewy pearls.", price:249, old:299, badge:"Bestseller", color:"#C1793B", img:"assets/img/products/brown_sugar_cloud.jpeg", rating:4.9 },
+    { id:"p2", name:"Strawberry Cream Boba", cat:"Fruit Tea", desc:"Real strawberry, silky cream top, popping boba.", price:229, old:null, badge:null, color:"#E6A98C", img:"assets/img/products/strawberry_cream_boba.jpeg", rating:4.6 },
+    { id:"p3", name:"Matcha Pearl Latte", cat:"Matcha", desc:"Stone-ground matcha, oat milk, tapioca pearls.", price:239, old:null, badge:null, color:"#7C8F63", img:"assets/img/products/matcha_pearl_latte.jpeg", rating:4.8 },
+    { id:"p4", name:"Taro Dream Milk Tea", cat:"Milk Tea", desc:"Creamy taro, brown sugar pearls, oat milk option.", price:239, old:null, badge:null, color:"#8D7CAE", img:"assets/img/products/taro_dream_milk_tea.jpeg", rating:4.7 },];
+  const grid = document.getElementById("featured-products");
+  grid.innerHTML = featured.map(p => `
+    <div class="product-card reveal">
+      <div class="product-media">
+          <img src="${p.img}" alt="${p.name}">
+          ${p.badge ? `<div class="badge" style="background:${p.color}">${p.badge}</div>` : ''}
+          <button class="fav-btn" data-id="${p.id}" aria-label="Favorite"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="heart-icon"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
+        </div>
+        <div class="product-info">
+          <h3>${p.name}</h3>
+          <div class="product-rating" style="display:flex;align-items:center;gap:4px;margin-bottom:6px;">
+            <span style="color:#F5A623;font-size:0.85rem;">${'★'.repeat(Math.floor(p.rating))}${'☆'.repeat(5-Math.floor(p.rating))}</span>
+            <span style="font-size:0.8rem;color:var(--text-soft);font-weight:600;">${p.rating}</span>
+          </div>
+          <p>${p.desc}</p>
+          <div class="product-bottom">
+            <div class="product-price">
+              ${p.old ? `<span class="old">₹${p.old}</span>` : ''}₹${p.price}
+            </div>
+            <button class="add-cart-btn add-cart" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}" data-img="${p.img}" aria-label="Add to cart">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+          </div>
+        </div>
+    </div>
+  `).join("");
+  window.bbRefresh && window.bbRefresh();
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".inline-read-more").forEach(btn => {
+    btn.addEventListener("click", function() {
+      const extended = this.previousElementSibling;
+      if (extended.style.display === "none") {
+        extended.style.display = "block";
+        this.innerHTML = "Read Less &uarr;";
+      } else {
+        extended.style.display = "none";
+        this.innerHTML = "Read More &rarr;";
+      }
+    });
+  });
+});
+</script>
+  <script src="assets/js/advanced_animations.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('blogSearch');
+      const filterBtns = document.querySelectorAll('#blogFilters button');
+      const articles = document.querySelectorAll('article');
+
+      let currentFilter = 'all';
+      let searchQuery = '';
+
+      function filterArticles() {
+        articles.forEach(article => {
+          const title = article.querySelector('h3').textContent.toLowerCase();
+          const summary = article.querySelector('p').textContent.toLowerCase();
+          const category = article.querySelector('div > span:first-child').textContent.toLowerCase();
+
+          const matchesSearch = title.includes(searchQuery) || summary.includes(searchQuery);
+          const matchesCategory = currentFilter === 'all' || category === currentFilter;
+
+          if (matchesSearch && matchesCategory) {
+            article.style.display = 'block';
+          } else {
+            article.style.display = 'none';
+          }
+        });
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value.toLowerCase();
+          filterArticles();
+        });
+      }
+
+      if (filterBtns) {
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            filterBtns.forEach(b => {
+              b.classList.remove('btn-primary');
+              b.classList.add('btn-outline');
+            });
+            e.target.classList.remove('btn-outline');
+            e.target.classList.add('btn-primary');
+
+            currentFilter = e.target.getAttribute('data-filter');
+            filterArticles();
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
+
+
+
