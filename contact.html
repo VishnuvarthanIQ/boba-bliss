@@ -16,7 +16,7 @@
 
 <header class="site-header">
   <div class="container header-row">
-    <a href="index.html" class="logo" style="display: flex; align-items: center;"><img src="assets/img/logo.png" alt="Logo" style="width: 56px; height: 56px; margin-right: 12px; object-fit: contain;"> Boba Bliss</a>
+    <a href="index.html" class="logo" style="display: flex; align-items: center;"><img src="assets/img/logo.png" alt="Logo" style="width: 56px; height: 56px; margin-right: 2px; object-fit: contain;"> <span style="font-weight: 800; color: var(--accent); letter-spacing: 0.5px;">Boba Bliss</span></a>
 
     <nav class="main-nav">
       <div class="has-dropdown" style="display:inline-block;">
@@ -35,12 +35,11 @@
     </nav>
 
     <div class="header-actions">
-      <a href="wishlist.html" class="icon-btn" aria-label="Favorites">♥<span class="badge" data-fav-count style="display:none">0</span></a>
-      <a href="cart.html" class="icon-btn" aria-label="Cart">🛍<span class="badge" data-cart-count style="display:none">0</span></a>
-      <button class="icon-btn theme-toggle" data-theme-toggle aria-label="Toggle dark mode">🌙</button>
+      <a href="wishlist.html" class="icon-btn" aria-label="Favorites"><i class="fa-solid fa-heart"></i><span class="badge" data-fav-count style="display:none">0</span></a>
+      <a href="cart.html" class="icon-btn" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i><span class="badge" data-cart-count style="display:none">0</span></a>
+      <button class="icon-btn theme-toggle" data-theme-toggle aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
       <button class="icon-btn" id="rtl-toggle" aria-label="Toggle RTL" style="margin-right:8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4"></path><path d="M3 7h18"></path><path d="M7 21l-4-4 4-4"></path><path d="M21 17H3"></path></svg></button>
-      <a href="login.html" class="btn btn-outline btn-sm login-btn">Login</a>
-      <a href="register.html" class="btn btn-primary btn-sm register-btn">Register</a>
+      <a href="menu.html" class="btn btn-primary btn-sm">Order Now</a>
       <button class="nav-toggle" aria-label="Open menu">☰</button>
     </div>
   </div>
@@ -65,20 +64,19 @@
       <a href="blog.html">Blog</a>
       <a href="contact.html" class="active">Contact</a>
       <div class="drawer-icons">
-        <a href="wishlist.html" class="icon-btn" aria-label="Favorites">♥<span class="badge" data-fav-count style="display:none"></span></a>
-        <a href="cart.html" class="icon-btn" aria-label="Cart">🛍<span class="badge" data-cart-count style="display:none"></span></a>
+        <a href="wishlist.html" class="icon-btn" aria-label="Favorites"><i class="fa-solid fa-heart"></i><span class="badge" data-fav-count style="display:none"></span></a>
+        <a href="cart.html" class="icon-btn" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i><span class="badge" data-cart-count style="display:none"></span></a>
       </div>
         <div style="display:flex; gap:10px; margin-top:12px; padding-top:16px; border-top:1px solid var(--border);">
-          <a href="login.html" class="btn btn-outline btn-sm" style="flex:1; text-align:center; display:block;">Login</a>
-          <a href="register.html" class="btn btn-primary btn-sm" style="flex:1; text-align:center; display:block;">Register</a>
-        </div>
+            <a href="menu.html" class="btn btn-primary btn-sm" style="flex:1; text-align:center; display:block;">Order Now</a>
+          </div>
       </nav>
     
     
   </div>
 </div>
 
-<section class="page-hero">
+<section class="page-hero" style="background-image: url('https://images.pexels.com/photos/5469039/pexels-photo-5469039.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
   <div class="container">
 
     <h1>Questions, catering, or a franchise idea?</h1>
@@ -131,11 +129,24 @@
   </div>
 </section>
 
-<section style="padding-top:0;">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">FIND US</p>
-      <h2>Our locations</h2>
+
+  <section style="padding-top: 20px; padding-bottom: 40px;">
+    <div class="container">
+      <div class="section-head reveal" style="text-align: center; margin-bottom: 40px;">
+        <p class="eyebrow">VISIT US</p>
+        <h2>Find your nearest bliss</h2>
+      </div>
+      <div class="reveal" style="border-radius: 24px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 15px 40px rgba(0,0,0,0.06); height: 450px; background: var(--bg-raised);">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15665.811802951912!2d76.96349255!3d11.00445695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859af2f971cb5%3A0x2fc1c81e183ed282!2sRace%20Course%2C%20Gopalapuram%2C%20Coimbatore%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0; filter: grayscale(0.4) opacity(0.9); transition: filter 0.4s ease;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(0.4) opacity(0.9)'"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">STORE DIRECTORY</p>
+        <h2>Our locations</h2>
     </div>
     <div class="feature-list reveal">
       <div class="feature-item">
@@ -164,7 +175,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo" style="display: flex; align-items: center;"><img src="assets/img/logo.png" alt="Logo" style="width: 56px; height: 56px; margin-right: 12px; object-fit: contain;"> Boba Bliss</a>
+        <a href="index.html" class="logo" style="display: flex; align-items: center;"><img src="assets/img/logo.png" alt="Logo" style="width: 56px; height: 56px; margin-right: 2px; object-fit: contain;"> <span style="font-weight: 800; color: var(--accent); letter-spacing: 0.5px;">Boba Bliss</span></a>
         <p>Freshly brewed happiness, one cup at a time.</p>
         <div class="social-row"><a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a><a href="https://tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a><a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a></div>
       </div>

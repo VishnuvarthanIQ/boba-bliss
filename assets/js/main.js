@@ -36,7 +36,7 @@
   }
   function updateThemeIcon(btn) {
     const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-    btn.textContent = isDark ? "☀️" : "🌙";
+    btn.innerHTML = isDark ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
   }
 
   /* ---------- RTL toggle ---------- */
