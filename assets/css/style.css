@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    BOBA BLISS — design system
    Fraunces (display) + Karla (body/UI)
    ========================================================= */
@@ -152,7 +152,7 @@ section{ padding:104px 0; }
   body { padding-top: 76px; }
   .main-nav{ display:none; }
   .nav-toggle{ display:flex; width:42px; height:42px; border-radius:50%; border:1px solid var(--border); background:var(--bg-raised); align-items:center; justify-content:center; font-size:1.2rem; cursor:pointer; }
-  .header-actions .btn, .header-actions [aria-label="Favorites"], .header-actions [aria-label="Cart"] { display:none !important; }
+  .header-actions .btn, .header-actions [aria-label="Favorites"], .header-actions [aria-label="Cart"], .header-actions .theme-toggle, .header-actions #rtl-toggle { display:none !important; }
   .header-row { padding: 14px 20px; gap: 16px; }
 }
 

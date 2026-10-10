@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -40,7 +40,17 @@
   
   .add-cart-btn { background: var(--bg); border: 2px solid var(--border); color: var(--text); width: 44px; height: 44px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: all 0.3s; font-size: 1.2rem; }
   .product-card:hover .add-cart-btn { background: var(--accent); border-color: var(--accent); color: #fff; transform: rotate(90deg); }
+
+  .editorial-post { grid-template-columns: 1fr 1fr; }
+  .editorial-post:nth-child(even) .post-media { order: 2; }
+  .editorial-post:nth-child(even) .post-content { order: 1; }
+  @media (max-width: 768px) {
+    .editorial-post { grid-template-columns: 1fr !important; gap: 30px !important; }
+    .editorial-post:nth-child(even) .post-media { order: -1; }
+    .editorial-post:nth-child(even) .post-content { order: 2; }
+  }
 </style>
+
 
 </head>
 <body>
@@ -72,7 +82,7 @@
       <button class="icon-btn theme-toggle" data-theme-toggle aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
       <button class="icon-btn" id="rtl-toggle" aria-label="Toggle RTL" style="margin-right:8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4"></path><path d="M3 7h18"></path><path d="M7 21l-4-4 4-4"></path><path d="M21 17H3"></path></svg></button>
       <a href="menu.html" class="btn btn-primary btn-sm">Order Now</a>
-      <button class="nav-toggle" aria-label="Open menu">☰</button>
+      <button class="nav-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
     </div>
   </div>
 </header>
@@ -97,9 +107,11 @@
       <a href="blog.html" class="active">Blog</a>
       <a href="contact.html">Contact</a>
       <div class="drawer-icons">
-        <a href="wishlist.html" class="icon-btn" aria-label="Favorites"><i class="fa-solid fa-heart"></i><span class="badge" data-fav-count style="display:none"></span></a>
-        <a href="cart.html" class="icon-btn" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i><span class="badge" data-cart-count style="display:none"></span></a>
-      </div>
+          <a href="wishlist.html" class="icon-btn" aria-label="Favorites"><i class="fa-solid fa-heart"></i><span class="badge" data-fav-count style="display:none">0</span></a>
+          <a href="cart.html" class="icon-btn" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i><span class="badge" data-cart-count style="display:none">0</span></a>
+          <button class="icon-btn theme-toggle" data-theme-toggle aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+          <button class="icon-btn" id="rtl-toggle" aria-label="Toggle RTL"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4"></path><path d="M3 7h18"></path><path d="M7 21l-4-4 4-4"></path><path d="M21 17H3"></path></svg></button>
+        </div>
         <div style="display:flex; gap:10px; margin-top:12px; padding-top:16px; border-top:1px solid var(--border);">
             <a href="menu.html" class="btn btn-primary btn-sm" style="flex:1; text-align:center; display:block;">Order Now</a>
           </div>
@@ -146,82 +158,144 @@
         <button class="btn btn-outline btn-sm" data-filter="health">Health</button>
       </div>
     </div>
-    <div style="padding-top: 10px;">
+    <div style="padding-top: 20px; max-width: 1000px; margin: 0 auto;">
+
       
-      <article class="reveal" style="padding-bottom: 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.8rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.06em;">
+      <article class="editorial-post reveal" style="display: grid; gap: 40px; align-items: center; margin-bottom: 80px;">
+    <div class="post-media" style="border-radius: 20px; overflow: hidden; aspect-ratio: 4/3;">
+        <a href="blog-1.html"><img src="assets/img/5 ways to customize your perfect boba.jpg" alt="Customize boba" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></a>
+    </div>
+    <div class="post-content">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.08em;">
+            
+                
           <span>Recipes</span>
           <span style="width: 4px; height: 4px; border-radius: 50%; background: var(--border);"></span>
           <span style="color: var(--text-soft);">5 min read</span>
+        
+            
         </div>
-        <h3 style="font-size: 2.4rem; font-family: 'Fraunces', serif; margin-bottom: 18px; line-height: 1.15; letter-spacing: -0.01em;">
-          <a href="blog-1.html" style="color: var(--text); text-decoration: none;">5 ways to customize your perfect boba</a>
+        <h3 style="font-size: clamp(2rem, 4vw, 2.8rem); font-family: 'Fraunces', serif; margin-bottom: 20px; line-height: 1.1; letter-spacing: -0.02em;">
+            <a href="blog-1.html" style="color: var(--text); text-decoration: none;">5 ways to customize your perfect boba</a>
         </h3>
-        <p style="color: var(--text-soft); font-size: 1.12rem; line-height: 1.75;">When you walk into Boba Bliss, the menu is just the beginning. By adjusting your ice level, swapping the milk, or mixing up the toppings, you can turn a classic milk tea into your own signature drink. One of the best-kept secrets is pairing our roasted oolong with oat milk, which perfectly amplifies the nutty, earthy undertones of the tea leaves. Another popular hack is adjusting the sweetness down to 50%; not only does this let the premium tea flavor shine through, but it also creates the perfect balance when paired with our heavily caramelized brown sugar pearls. Whether you prefer a refreshing fruit tea with lychee jelly or a creamy taro dream with extra boba, we encourage you to experiment until you find the perfect combination that brightens your day.</p>
-      </article>
+        <p style="color: var(--text-soft); font-size: 1.1rem; line-height: 1.75; margin-bottom: 30px;">When you walk into Boba Bliss, the menu is just the beginning. By adjusting your ice level, swapping the milk, or mixing up the toppings, you can turn a classic milk tea into your own signature drink. One of the best-kept secrets is pairing our roasted oolong with oat milk, which perfectly amplifies the nutty, earthy undertones of the tea leaves. Another popular hack is adjusting the sweetness down to 50%; not only does this let the premium tea flavor shine through, but it also creates the perfect balance when paired with our heavily caramelized brown sugar pearls. Whether you prefer a refreshing fruit tea with lychee jelly or a creamy taro dream with extra boba, we encourage you to experiment until you find the perfect combination that brightens your day.</p>
+        
+    </div>
+</article>
 
-      <article class="reveal" style="padding-bottom: 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.8rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.06em;">
+      <article class="editorial-post reveal" style="display: grid; gap: 40px; align-items: center; margin-bottom: 80px;">
+    <div class="post-media" style="border-radius: 20px; overflow: hidden; aspect-ratio: 4/3;">
+        <a href="blog-2.html"><img src="assets/img/Matcha vs milk tea.jpg" alt="Matcha" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></a>
+    </div>
+    <div class="post-content">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.08em;">
+            
+                
           <span>Boba Culture</span>
           <span style="width: 4px; height: 4px; border-radius: 50%; background: var(--border);"></span>
           <span style="color: var(--text-soft);">4 min read</span>
+        
+            
         </div>
-        <h3 style="font-size: 2.4rem; font-family: 'Fraunces', serif; margin-bottom: 18px; line-height: 1.15; letter-spacing: -0.01em;">
-          <a href="blog-2.html" style="color: var(--text); text-decoration: none;">Matcha vs milk tea: which one is for you?</a>
+        <h3 style="font-size: clamp(2rem, 4vw, 2.8rem); font-family: 'Fraunces', serif; margin-bottom: 20px; line-height: 1.1; letter-spacing: -0.02em;">
+            <a href="blog-2.html" style="color: var(--text); text-decoration: none;">Matcha vs milk tea: which one is for you?</a>
         </h3>
-        <p style="color: var(--text-soft); font-size: 1.12rem; line-height: 1.75;">It's the ultimate showdown: the earthy, vibrant energy of a Matcha Latte versus the comforting, roasted sweetness of Classic Milk Tea. Which one should you choose? If you're looking for an antioxidant boost and a slightly bitter, complex flavor profile, matcha is your best friend. Our stone-ground matcha is whisked to order and pairs beautifully with plant-based milks. On the other hand, if you want something nostalgic and indulgent, nothing beats our signature black milk tea, brewed deeply and enriched with a splash of cream. Both beverages have deep roots in tea culture, but they cater to entirely different moods. Let's break down the caffeine content, the flavor notes, and the best toppings to pair with each of these iconic drinks.</p>
-      </article>
+        <p style="color: var(--text-soft); font-size: 1.1rem; line-height: 1.75; margin-bottom: 30px;">It's the ultimate showdown: the earthy, vibrant energy of a Matcha Latte versus the comforting, roasted sweetness of Classic Milk Tea. Which one should you choose? If you're looking for an antioxidant boost and a slightly bitter, complex flavor profile, matcha is your best friend. Our stone-ground matcha is whisked to order and pairs beautifully with plant-based milks. On the other hand, if you want something nostalgic and indulgent, nothing beats our signature black milk tea, brewed deeply and enriched with a splash of cream. Both beverages have deep roots in tea culture, but they cater to entirely different moods. Let's break down the caffeine content, the flavor notes, and the best toppings to pair with each of these iconic drinks.</p>
+        
+    </div>
+</article>
 
-      <article class="reveal" style="padding-bottom: 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.8rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.06em;">
+      <article class="editorial-post reveal" style="display: grid; gap: 40px; align-items: center; margin-bottom: 80px;">
+    <div class="post-media" style="border-radius: 20px; overflow: hidden; aspect-ratio: 4/3;">
+        <a href="blog-3.html"><img src="assets/img/The story behind our brown sugar pearls.jpg" alt="Pearls" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></a>
+    </div>
+    <div class="post-content">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.08em;">
+            
+                
           <span>Cafe News</span>
           <span style="width: 4px; height: 4px; border-radius: 50%; background: var(--border);"></span>
           <span style="color: var(--text-soft);">3 min read</span>
+        
+            
         </div>
-        <h3 style="font-size: 2.4rem; font-family: 'Fraunces', serif; margin-bottom: 18px; line-height: 1.15; letter-spacing: -0.01em;">
-          <a href="blog-3.html" style="color: var(--text); text-decoration: none;">The story behind our brown sugar pearls</a>
+        <h3 style="font-size: clamp(2rem, 4vw, 2.8rem); font-family: 'Fraunces', serif; margin-bottom: 20px; line-height: 1.1; letter-spacing: -0.02em;">
+            <a href="blog-3.html" style="color: var(--text); text-decoration: none;">The story behind our brown sugar pearls</a>
         </h3>
-        <p style="color: var(--text-soft); font-size: 1.12rem; line-height: 1.75;">Our brown sugar pearls are the heart and soul of Boba Bliss. Unlike mass-produced syrups that prioritize speed over quality, we believe in the traditional method of slow-cooking our tapioca pearls in rich, dark brown sugar until they are perfectly caramelized. Every single morning, long before the cafe doors open, our team spends over two hours carefully simmering and stirring the pearls to achieve that delightfully chewy texture. This intense labor of love ensures that every time you take a sip of our Brown Sugar Cloud, you get that warm, molasses-like tiger stripe effect coating the inside of your cup. Here is an exclusive behind-the-scenes look at the dedication and technique required to make the best boba in town.</p>
-      </article>
+        <p style="color: var(--text-soft); font-size: 1.1rem; line-height: 1.75; margin-bottom: 30px;">Our brown sugar pearls are the heart and soul of Boba Bliss. Unlike mass-produced syrups that prioritize speed over quality, we believe in the traditional method of slow-cooking our tapioca pearls in rich, dark brown sugar until they are perfectly caramelized. Every single morning, long before the cafe doors open, our team spends over two hours carefully simmering and stirring the pearls to achieve that delightfully chewy texture. This intense labor of love ensures that every time you take a sip of our Brown Sugar Cloud, you get that warm, molasses-like tiger stripe effect coating the inside of your cup. Here is an exclusive behind-the-scenes look at the dedication and technique required to make the best boba in town.</p>
+        
+    </div>
+</article>
       
-      <article class="reveal" style="padding-bottom: 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.8rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.06em;">
+      <article class="editorial-post reveal" style="display: grid; gap: 40px; align-items: center; margin-bottom: 80px;">
+    <div class="post-media" style="border-radius: 20px; overflow: hidden; aspect-ratio: 4/3;">
+        <a href="#"><img src="assets/img/The benefits of premium matcha.jpg" alt="Premium matcha" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></a>
+    </div>
+    <div class="post-content">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.08em;">
+            
+                
           <span>Health</span>
           <span style="width: 4px; height: 4px; border-radius: 50%; background: var(--border);"></span>
           <span style="color: var(--text-soft);">4 min read</span>
+        
+            
         </div>
-        <h3 style="font-size: 2.4rem; font-family: 'Fraunces', serif; margin-bottom: 18px; line-height: 1.15; letter-spacing: -0.01em;">
-          <a href="#" style="color: var(--text); text-decoration: none;">The benefits of premium matcha</a>
+        <h3 style="font-size: clamp(2rem, 4vw, 2.8rem); font-family: 'Fraunces', serif; margin-bottom: 20px; line-height: 1.1; letter-spacing: -0.02em;">
+            <a href="#" style="color: var(--text); text-decoration: none;">The benefits of premium matcha</a>
         </h3>
-        <p style="color: var(--text-soft); font-size: 1.12rem; line-height: 1.75;">Why does ceremonial grade make all the difference in your iced latte? Discover the unique amino acids and sustained energy release that makes premium stone-ground matcha the perfect alternative to your morning coffee. Unlike the immediate spike and subsequent crash often associated with espresso, the L-theanine found in high-quality matcha promotes a state of calm alertness, helping you stay focused throughout the day. Furthermore, matcha involves consuming the entire tea leaf, meaning you ingest a incredibly concentrated amount of antioxidants and catechins. We source our matcha directly from family-owned farms in Uji, Japan, ensuring that every cup is vibrant green, naturally sweet, and packed with health-boosting properties.</p>
-      </article>
+        <p style="color: var(--text-soft); font-size: 1.1rem; line-height: 1.75; margin-bottom: 30px;">Why does ceremonial grade make all the difference in your iced latte? Discover the unique amino acids and sustained energy release that makes premium stone-ground matcha the perfect alternative to your morning coffee. Unlike the immediate spike and subsequent crash often associated with espresso, the L-theanine found in high-quality matcha promotes a state of calm alertness, helping you stay focused throughout the day. Furthermore, matcha involves consuming the entire tea leaf, meaning you ingest a incredibly concentrated amount of antioxidants and catechins. We source our matcha directly from family-owned farms in Uji, Japan, ensuring that every cup is vibrant green, naturally sweet, and packed with health-boosting properties.</p>
+        
+    </div>
+</article>
 
-      <article class="reveal" style="padding-bottom: 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.8rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.06em;">
+      <article class="editorial-post reveal" style="display: grid; gap: 40px; align-items: center; margin-bottom: 80px;">
+    <div class="post-media" style="border-radius: 20px; overflow: hidden; aspect-ratio: 4/3;">
+        <a href="#"><img src="assets/img/How to make milk tea at home.jpg" alt="Milk tea home" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></a>
+    </div>
+    <div class="post-content">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.08em;">
+            
+                
           <span>Recipes</span>
           <span style="width: 4px; height: 4px; border-radius: 50%; background: var(--border);"></span>
           <span style="color: var(--text-soft);">6 min read</span>
+        
+            
         </div>
-        <h3 style="font-size: 2.4rem; font-family: 'Fraunces', serif; margin-bottom: 18px; line-height: 1.15; letter-spacing: -0.01em;">
-          <a href="#" style="color: var(--text); text-decoration: none;">How to make milk tea at home</a>
+        <h3 style="font-size: clamp(2rem, 4vw, 2.8rem); font-family: 'Fraunces', serif; margin-bottom: 20px; line-height: 1.1; letter-spacing: -0.02em;">
+            <a href="#" style="color: var(--text); text-decoration: none;">How to make milk tea at home</a>
         </h3>
-        <p style="color: var(--text-soft); font-size: 1.12rem; line-height: 1.75;">The secret to achieving the perfect tea-to-milk ratio without watering it down lies in the brewing process. We share our professional brewing temperatures, steeping times, and exactly how to sweeten your tea while it's still hot to ensure a smooth, cohesive flavor. It all starts with selecting a bold, loose-leaf black tea that can stand up to the richness of the milk. We highly recommend using a combination of whole milk and a splash of half-and-half for that authentic cafe-style creaminess. Finally, the trick to icing your drink without diluting the tea is to brew a highly concentrated batch and pour it directly over a shaker full of ice. Follow our step-by-step recipe to recreate the Boba Bliss experience right in your own kitchen.</p>
-      </article>
+        <p style="color: var(--text-soft); font-size: 1.1rem; line-height: 1.75; margin-bottom: 30px;">The secret to achieving the perfect tea-to-milk ratio without watering it down lies in the brewing process. We share our professional brewing temperatures, steeping times, and exactly how to sweeten your tea while it's still hot to ensure a smooth, cohesive flavor. It all starts with selecting a bold, loose-leaf black tea that can stand up to the richness of the milk. We highly recommend using a combination of whole milk and a splash of half-and-half for that authentic cafe-style creaminess. Finally, the trick to icing your drink without diluting the tea is to brew a highly concentrated batch and pour it directly over a shaker full of ice. Follow our step-by-step recipe to recreate the Boba Bliss experience right in your own kitchen.</p>
+        
+    </div>
+</article>
       
-      <article class="reveal" style="padding-bottom: 48px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.8rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.06em;">
+      <article class="editorial-post reveal" style="display: grid; gap: 40px; align-items: center; margin-bottom: 80px;">
+    <div class="post-media" style="border-radius: 20px; overflow: hidden; aspect-ratio: 4/3;">
+        <a href="#"><img src="assets/img/A history of tapioca pearls.jpg" alt="Tapioca history" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></a>
+    </div>
+    <div class="post-content">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; font-weight: 800; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.08em;">
+            
+                
           <span>Boba Culture</span>
           <span style="width: 4px; height: 4px; border-radius: 50%; background: var(--border);"></span>
           <span style="color: var(--text-soft);">5 min read</span>
+        
+            
         </div>
-        <h3 style="font-size: 2.4rem; font-family: 'Fraunces', serif; margin-bottom: 18px; line-height: 1.15; letter-spacing: -0.01em;">
-          <a href="#" style="color: var(--text); text-decoration: none;">A history of tapioca pearls</a>
+        <h3 style="font-size: clamp(2rem, 4vw, 2.8rem); font-family: 'Fraunces', serif; margin-bottom: 20px; line-height: 1.1; letter-spacing: -0.02em;">
+            <a href="#" style="color: var(--text); text-decoration: none;">A history of tapioca pearls</a>
         </h3>
-        <p style="color: var(--text-soft); font-size: 1.12rem; line-height: 1.75;">From a humble dessert topping in Taiwan to a global phenomenon, the journey of the tapioca pearl is a fascinating tale of culinary innovation. Derived from the starch of the cassava root, tapioca was originally used in traditional shaved ice desserts before an inventive tea shop owner decided to drop a few chewy balls into a glass of cold milk tea in the late 1980s. The contrasting textures of the smooth, sweet tea and the bouncy, gummy-like pearls created an instant sensation. Today, "boba" has evolved into an entire subculture, with countless variations of flavors, colors, and consistencies. We dive deep into the archives to trace how this simple ingredient transformed the modern beverage industry and became a cultural icon across the world.</p>
-      </article>
-      
+        <p style="color: var(--text-soft); font-size: 1.1rem; line-height: 1.75; margin-bottom: 30px;">From a humble dessert topping in Taiwan to a global phenomenon, the journey of the tapioca pearl is a fascinating tale of culinary innovation. Derived from the starch of the cassava root, tapioca was originally used in traditional shaved ice desserts before an inventive tea shop owner decided to drop a few chewy balls into a glass of cold milk tea in the late 1980s. The contrasting textures of the smooth, sweet tea and the bouncy, gummy-like pearls created an instant sensation. Today, "boba" has evolved into an entire subculture, with countless variations of flavors, colors, and consistencies. We dive deep into the archives to trace how this simple ingredient transformed the modern beverage industry and became a cultural icon across the world.</p>
+        
     </div>
-  </div>
+</article>
+      
+    
+</div>
+</div>
 </section>
 <footer class="site-footer">
   <div class="container">
